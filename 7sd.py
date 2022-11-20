@@ -2,7 +2,7 @@ from datetime import datetime
 from time import sleep, time
 from turtle import Screen, Turtle
 
-twelveHour = True
+twelveHour = False
 
 offset = [-310, -190, -60, 60, 190, 310]
 connections = [[[-50, 75], [50, 75]], [[-50, 75], [-50, 0]], [[50, 75], [50, 0]], [[-50, 0], [50, 0]], [[-50, 0], [-50, -75]], [[50, 0], [50, -75]], [[-50, -75], [50, -75]]]
@@ -48,7 +48,7 @@ def updateNumbers(currentTime):
 
 while True:
     if twelveHour:
-        updateNumbers([i for i in (str(datetime.fromtimestamp(round(time())))[11:].replace(":", "") if int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 12 < 0 else ("0" + str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000) if len(str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000)) == 5 else str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000)))])
+        updateNumbers([i for i in (str(datetime.fromtimestamp(round(time())))[11:].replace(":", "") if int(str(datetime.fromtimestamp(round(time())))[11:13]) - 12 < 1 else ("0" + str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000) if len(str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000)) == 5 else str(int(str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")) - 120000)))])
     else:
         updateNumbers([i for i in str(datetime.fromtimestamp(round(time())))[11:].replace(":", "")])
     sleep(.05)
